@@ -12,24 +12,19 @@ class ShopsScreen extends StatefulWidget {
 class _ShopsScreenState extends State<ShopsScreen> {
   List shops = [
     Shop(
-      name: 'Private Vehicle',
-      substring: 'Private Vehicle for personal use only',
-      image: 'assets/images/car.png',
-    ),
-    Shop(
       name: 'Boda-Boda',
       substring: 'Motor Cycles for carrying passengers',
-      image: 'assets/images/motorbike.png',
+      image: 'assets/images/motorbike.svg',
     ),
     Shop(
       name: 'Tuk Tuk',
       substring: 'Motor Cycles for carrying passengers',
-      image: 'assets/images/tuk-tuk.png',
+      image: 'assets/images/tuk-tuk.svg',
     ),
     Shop(
       name: 'PSV Matatu or Bus',
       substring: 'PSV Matatu or Bus',
-      image: 'assets/images/bus.png',
+      image: 'assets/images/bus.svg',
     )
   ];
 
@@ -84,6 +79,30 @@ class _ShopsScreenState extends State<ShopsScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: ListTile(
+                      leading: Image.asset('assets/images/car.png'),
+                      title: const Text(
+                        'Private Vehicle',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 15),
+                      ),
+                      subtitle: const Text(
+                        'Private Vehicle for personal use only',
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
                 ...shops.map((e) => Column(
                       children: [
                         ShopTile(
@@ -109,12 +128,18 @@ class ShopTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        color: Colors.white,
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: ListTile(
-          leading: Image.asset(shop!.image!),
-          title: Text(shop!.name!),
+          leading: SvgPicture.asset(shop!.image!),
+          title: Text(
+            shop!.name!,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          ),
           subtitle: Text(
             shop!.substring!,
             style: const TextStyle(

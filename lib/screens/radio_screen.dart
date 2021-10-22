@@ -28,9 +28,17 @@ class RadioScreen extends StatelessWidget {
                 height: 150,
                 width: 100,
               ),
-              const Text(
-                'National Station',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    'National Station',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 25),
               Row(
